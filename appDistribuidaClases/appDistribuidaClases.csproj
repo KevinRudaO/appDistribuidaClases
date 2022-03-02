@@ -131,6 +131,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="javascritp\Registro.js" />
+    <Content Include="javascritp\RegistroEmpresa.js" />
+    <Content Include="Paginas\RegistroEmpresa.html" />
     <Content Include="Paginas\Registro.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

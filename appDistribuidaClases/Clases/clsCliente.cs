@@ -99,6 +99,63 @@ namespace pProgramacionDistribuida.Clases
                 return false;
             }
         }
+
+         public bool Acualizar()
+                {
+                    SQL = "UPDATE tblCliente SET Nombre=@prNombre, PrimerApellido=@prPrimerApellido , SegundoApellido=@prSegundoApellido," +
+                  "Direccion= @prDireccion , Telefono=@prTelefono , FechaNacimiento=@prFechaNacimiento , CorreoElectronico=@prEmail , " +
+                  "Clave=@prClave " +
+                  "WHERE Documento=@prDocumento";
+
+                    //Se crea el objeto de Conexión
+                    clsConexion oConexion = new clsConexion();
+                    //Se pasa el SQL que va a ejecutar
+                    oConexion.SQL = SQL;
+                    //Se pasan los parámetros
+                    oConexion.AgregarParametro("@prDocumento", Documento);
+                    oConexion.AgregarParametro("@prNombre", Nombres);
+                    oConexion.AgregarParametro("@prPrimerApellido", PrimerApellido);
+                    oConexion.AgregarParametro("@prSegundoApellido", SegundoApellido);
+                    oConexion.AgregarParametro("@prDireccion", Direccion);
+                    oConexion.AgregarParametro("@prTelefono", Telefono);
+                    oConexion.AgregarParametro("@prFechaNacimiento", FechaNacimiento);
+                    oConexion.AgregarParametro("@prEmail", Email);
+                    oConexion.AgregarParametro("@prClave", Clave);
+
+                    if (oConexion.EjecutarSentencia())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        Error = oConexion.Error;
+                        return false;
+                    }
+                
+            }
+
+        public bool Eliminar()
+        {
+            SQL = "DELETE FROM tblCliente WHERE Documento=@prDocumento";
+
+            //Se crea el objeto de Conexión
+            clsConexion oConexion = new clsConexion();
+            //Se pasa el SQL que va a ejecutar
+            oConexion.SQL = SQL;
+            //Se pasan los parámetros
+            oConexion.AgregarParametro("@prDocumento", Documento);
+
+            if (oConexion.EjecutarSentencia())
+            {
+                return true;
+            }
+            else
+            {
+                Error = oConexion.Error;
+                return false;
+            }
+
+        }
         #endregion
     }
 }

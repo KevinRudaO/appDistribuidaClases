@@ -21,21 +21,7 @@ namespace pProgramacionDistribuida.Servidor
             DatosCliente = reader.ReadToEnd();
             
             clsCliente oCliente = JsonConvert.DeserializeObject<clsCliente>(DatosCliente);
-            /*
-            context.Response.Write("Documento: " + oCliente.Documento + ", " + "Nombres: " + 
-                oCliente.Nombres + ", Apellidos: " + oCliente.PrimerApellido + " " + oCliente.SegundoApellido +
-                ", Dirección y teléfono: "+ oCliente.Direccion + " - " + oCliente.Telefono + ", " +
-                "Fecha Nacimiento: " + oCliente.FechaNacimiento.ToString("yyyy-MMM-dd") + ", Email: " + oCliente.Email + ", " +
-                "Clave: " + oCliente.Clave);
-            if (oCliente.Insertar())
-            {
-                context.Response.Write("Registro ingresado con éxito");
-            }
-            else
-            {
-                context.Response.Write(oCliente.Error);
-            }
-            */
+           
             switch (oCliente.Comando.ToUpper())
             {
                 case "INSERTAR":
@@ -43,6 +29,12 @@ namespace pProgramacionDistribuida.Servidor
                     break;
                 case "CONSULTAR":
                     context.Response.Write(JsonConvert.SerializeObject(Consultar(oCliente)));
+                    break;
+                case "ACTUALIZAR":
+                    context.Response.Write(ActualizarCliente(oCliente));
+                    break;
+                case "ELIMINAR":
+                    context.Response.Write(EliminarCliente(oCliente));
                     break;
                 default:
                     context.Response.Write("Comando sin definir");
@@ -73,6 +65,32 @@ namespace pProgramacionDistribuida.Servidor
                 return "No definió el nombre del cliente";
             }
             return "";
+        }
+
+        private string ActualizarCliente(clsCliente oCliente)
+        {
+            //string Respuesta = Validar(oCliente);
+            if (oCliente.Acualizar())
+            {
+                return "Registro actualizado con éxito";
+            }
+            else
+            {
+                return oCliente.Error;
+            }
+        }
+
+        private string EliminarCliente(clsCliente oCliente)
+        {
+            //string Respuesta = Validar(oCliente);
+            if (oCliente.Eliminar())
+            {
+                return "Registro eliminado con éxito";
+            }
+            else
+            {
+                return oCliente.Error;
+            }
         }
         public bool IsReusable
         {
