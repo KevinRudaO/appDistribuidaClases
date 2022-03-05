@@ -31,12 +31,8 @@ function EjecutarAcciones(Comando) {
     var Direccion = $("#txtDireccion").val();
     var Telefono = $("#txtTelefono").val();
     var SitioWEB = $("#txtSitioWEB").val();
-
-    //Revisar si la clave y la confirmación están iguales
-    if (Clave !== ConfirmaClave) {
-        $("#dvMensaje").html("Las claves no coinciden, por favor revise la información registrada");
-        return;
-    }
+  
+    
     //El proceso continua
     //$("#dvMensaje").html("Las claves coinciden. Grabación en progreso");
     //Crear el objeto Json con los datos del cliente
@@ -47,13 +43,14 @@ function EjecutarAcciones(Comando) {
         Email: Email,
         direccion: Direccion,
         telefono: Telefono,
-        SitioWEB: SitioWEB
+        SitioWEB: SitioWEB,
+        Comando: Comando
     };
 
     //Inicia el proceso de invocación de  la página del servidor con ajax
     $.ajax({
         type: "POST",
-        url: "../Servidor/ControladorEmpresa.ashx",
+        url: "../Servidor/Controlador_Empresa.ashx",
         contentType: "application/json",
         data: JSON.stringify(DatosEmpresa),
         dataType: "html",
@@ -74,9 +71,11 @@ $(document).ready(function () {
         $("#dvMensaje").html("");
         $("#dvMensaje").html("");
         var NIT = $("#txtNIT").val();
+        var Comando = "Consultar";
 
         var DatosEmpresa = {
-            NIT:NIT
+            NIT: NIT,
+            Comando: Comando
         };
         
        
@@ -84,12 +83,12 @@ $(document).ready(function () {
         //Inicia el proceso de invocación de  la página del servidor con ajax
         $.ajax({
             type: "POST",
-            url: "../Servidor/ControladorEmpresa.ashx",
+            url: "../Servidor/Controlador_Empresa.ashx",
             contentType: "application/json",
             data: JSON.stringify(DatosEmpresa),
             dataType: "json",
             success: function (RespuestaEmpresa) {
-                $("#txIdEmpresa").val(RespuestaEmpresa["IdEmpresa"]);
+                $("#txtIdEmpresa").val(RespuestaEmpresa["IdEmpresa"]);
                 $("#txtNombre").val(RespuestaEmpresa["Nombre"]);
                 $("#txtEmail").val(RespuestaEmpresa["Email"]);
                 $("#txtDireccion").val(RespuestaEmpresa["Direccion"]);
