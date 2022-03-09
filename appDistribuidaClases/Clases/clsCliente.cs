@@ -156,6 +156,47 @@ namespace pProgramacionDistribuida.Clases
             }
 
         }
+
+        public List<clsCliente> LlenarTabla()
+        {
+            SQL = "Cliente_LlenarTabla";
+            
+            clsConexion oConexion = new clsConexion();
+            oConexion.SQL = SQL;
+            oConexion.StoredProcedure = true;
+
+            List<clsCliente> ListClientes = new List<clsCliente>();
+
+            if (oConexion.Consultar())
+            {
+                //Leer los datos
+                while (oConexion.Reader.Read())
+                {
+                    //Crear un objeto tipo cliente para llenar los datos
+                    clsCliente oCliente = new clsCliente();
+
+                    oCliente.Documento = oConexion.Reader.GetString(0);
+                    oCliente.Nombres = oConexion.Reader.GetString(1);
+                    oCliente.PrimerApellido = oConexion.Reader.GetString(2);
+                    oCliente.SegundoApellido = oConexion.Reader.GetString(3);
+                    oCliente.Direccion = oConexion.Reader.GetString(4);
+                    oCliente.Telefono = oConexion.Reader.GetString(5);
+                    oCliente.FechaNacimiento = oConexion.Reader.GetDateTime(6);
+                    oCliente.Email = oConexion.Reader.GetString(7);
+
+                    ListClientes.Add(oCliente); 
+                }
+
+                oConexion.CerrarConexion();
+                return ListClientes;
+            }
+            else
+            {
+                Error = oConexion.Error;
+                oConexion.CerrarConexion();
+                return null;
+            }
+        }
         #endregion
     }
 }

@@ -36,6 +36,9 @@ namespace pProgramacionDistribuida.Servidor
                 case "ELIMINAR":
                     context.Response.Write(EliminarCliente(oCliente));
                     break;
+                case "LLENAR_TABLA":
+                    context.Response.Write(LlenarTabla());
+                    break;
                 default:
                     context.Response.Write("Comando sin definir");
                     break;
@@ -91,6 +94,13 @@ namespace pProgramacionDistribuida.Servidor
             {
                 return oCliente.Error;
             }
+        }
+
+        private string LlenarTabla()
+        {
+            clsCliente oCliente = new clsCliente();
+            return JsonConvert.SerializeObject(oCliente.LlenarTabla());
+          
         }
         public bool IsReusable
         {

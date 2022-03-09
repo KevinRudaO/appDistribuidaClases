@@ -9,7 +9,7 @@
     <title>Registro de cliente</title>
     <link href="../Estilos/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-
+    <link href="../Estilos/datatables.css" rel="stylesheet" />
 </head>
 <body>
     <div id="dvRegistro">
@@ -107,6 +107,10 @@
                                             <div class="d-grid"><button class="btn btn-secondary btn-block" id="btnEliminar" type="button">Eliminar</button></div>
                                         </div>
                                         <div id="dvMensaje" class="card-footer d-flex align-items-center justify-content-between"></div>
+                                        
+                                        <div id="dvTabla">
+                                            <table id="tblClientes" class="display"></table>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -132,6 +136,7 @@
     </div>
     <script src="../Scripts/jquery-3.4.1.js"></script>
     <script src="../Estilos/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/datatables.min.js"></script>
     <script src="../javascritp/Registro.js"></script>
 </body>
 </html>

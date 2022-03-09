@@ -1,4 +1,48 @@
 ﻿$(document).ready(function () {
+    ListarClientes();
+});
+function ListarClientes() {
+    var DatosCliente = {
+        fechanacimiento: "1900/02/01",
+        comando: "Llenar_tabla"
+    };
+
+    //Inicia el proceso de invocación de  la página del servidor con ajax
+    $.ajax({
+        type: "POST",
+        url: "../Servidor/RegistroCliente.ashx",
+        contentType: "application/json",
+        data: JSON.stringify(DatosCliente),
+        dataType: "json",
+        success: function (RespuestaCliente) {
+            LlenarTabla(RespuestaCliente);
+        },
+        error: function (RespuestaCliente) {
+            $("#dvMensaje").html("Error: " + RespuestaCliente);
+        }
+    });
+}
+
+function LlenarTabla(DatosCliente) {
+    $("#tblClientes").DataTable({
+        data: DatosCliente,
+        columns: [
+            { data: 'Documento', title: ' DOCUMENTO' },
+            { data: 'Nombres', title: ' Nombres' },
+            { data: 'PrimerApellido', title: ' Primer Apellido' },
+            { data: 'SegundoApellido', title: ' Segundo Apellido' },
+            { data: 'Direccion', title: ' Direccion' },
+            { data: 'Telefono', title: ' Telefono' },
+            { data: 'FechaNacimiento', title: ' Fecha de Nacimiento' },
+            { data: 'Email', title: ' Email' }
+
+        ],
+        destroy: true
+    });
+}
+
+
+$(document).ready(function () {
     $("#btnIngresar").click(function () {
         EjecutarAcciones("insertar");
     });
