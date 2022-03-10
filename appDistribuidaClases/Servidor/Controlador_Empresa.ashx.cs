@@ -44,6 +44,7 @@ namespace appDistribuidaClases.Servidor
         private clsEmpresa Consultar(clsEmpresa oEmpresa)
         {
             oEmpresa.Consultar();
+            
             return oEmpresa;
         }
         private string InsertarEmpresa(clsEmpresa oEmpresa)

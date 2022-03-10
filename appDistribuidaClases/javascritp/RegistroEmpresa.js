@@ -23,8 +23,6 @@ $(document).ready(function () {
 function EjecutarAcciones(Comando) {
 
     $("#dvMensaje").html("");
-
-    var IdEmpresa = $("#txtIdEmpresa").val();
     var NIT = $("#txtNIT").val();
     var Nombre = $("#txtNombre").val();
     var Email = $("#txtEmail").val();
@@ -37,7 +35,6 @@ function EjecutarAcciones(Comando) {
     //$("#dvMensaje").html("Las claves coinciden. Grabación en progreso");
     //Crear el objeto Json con los datos del cliente
     var DatosEmpresa = {
-        IdEmpresa: IdEmpresa,
         NIT: NIT,
         Nombre: Nombre,
         Email: Email,
@@ -78,8 +75,6 @@ $(document).ready(function () {
             Comando: Comando
         };
         
-       
-
         //Inicia el proceso de invocación de  la página del servidor con ajax
         $.ajax({
             type: "POST",
