@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using Newtonsoft.Json;
-using pProgramacionDistribuida.Clases;
+using appDistribuidaClases.Clases;
 
 namespace appDistribuidaClases.Servidor
 {
