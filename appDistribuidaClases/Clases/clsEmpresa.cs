@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using libComunes.CapaDatos;
 
-namespace pProgramacionDistribuida.Clases
+namespace appDistribuidaClases.Clases
 {
     public class clsEmpresa
     {

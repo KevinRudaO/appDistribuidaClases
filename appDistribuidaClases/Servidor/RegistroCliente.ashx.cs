@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using Newtonsoft.Json;
-using pProgramacionDistribuida.Clases;
+using appDistribuidaClases.Clases;
 
-namespace pProgramacionDistribuida.Servidor
+namespace appDistribuidaClases.Servidor
 {
     /// <summary>
     /// Descripción breve de RegistroCliente

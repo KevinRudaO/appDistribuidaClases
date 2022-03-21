@@ -166,6 +166,7 @@
     <Content Include="CSS\bootstrap.rtl.css.map" />
     <Content Include="CSS\bootstrap.rtl.min.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="javascritp\Facturacion.js" />
     <Content Include="javascritp\Registro.js" />
     <Content Include="javascritp\RegistroEmpresa.js" />
     <Content Include="Paginas\Facturacion.html" />
@@ -217,8 +218,10 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Clases\clsEmpleado.cs" />
     <Compile Include="Clases\clsEmpresa.cs" />
     <Compile Include="Clases\clsCliente.cs" />
+    <Compile Include="Clases\ViewEmpleado.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,6 +240,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servidor\ControladorEmpleado.ashx.cs">
+      <DependentUpon>ControladorEmpleado.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Servidor\Controlador_Empresa.ashx.cs">
       <DependentUpon>Controlador_Empresa.ashx</DependentUpon>
     </Compile>
@@ -274,6 +280,7 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Servidor\RegistroCliente.ashx" />
     <Content Include="Servidor\Controlador_Empresa.ashx" />
+    <Content Include="Servidor\ControladorEmpleado.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
