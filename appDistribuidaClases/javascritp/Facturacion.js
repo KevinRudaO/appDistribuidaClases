@@ -2,44 +2,61 @@
     const fecha = new Date();
     $("#dvFechaFactura").html(fecha.toLocaleDateString());
 
-    //modificar los botones, modificar y eliminar
+    //Ocultar los botones, modificar y eliminar
     $("#dvModificarEliminar").hide();
 
     ComboCajeros();
+    ComboTipoProducto();
+
+    $("#lstTipoProducto").on('change', function () {
+        var TipoProducto = $("#lstTipoProducto").val();
+        ComboProducto(TipoProducto)
+    })
+    $("#lstProductos").on('change', function () {
+        CalcularValorUnitario();
+    })
 });
 
 function ComboCajeros() {
-    //Llenar combo desde el servidor
-
+   
+    var SURL = "../Comunes/ControladorCombos.ashx";
     var Comando = "LLENARCOMBOCAJEROS";
-    var SURL = "../Servidor/ControladorEmpleado.ashx";
-    var DatosEmpleado = {
-        Comando: Comando
-    }
-
-    $.ajax({
-        type: "POST",
-        url: SURL,
-        contentType: "application/json",
-        data: JSON.stringify(DatosEmpleado),
-        dataType: "json",
-        success: function (Respuesta) {
-            var Error = Respuesta["Error"];
-            if (Error == "" || Error == null || Error == 'undefined') {
-                LlenarComboEmpleados(Respuesta);
-            } else {
-                $("#dvMensaje").html(Error);
-            }
-        },
-        error: function (Respuesta) {
-            $("#dvMensaje").html("Error: " + Respuesta);
-        }
-    });
+    var lstParametros = null;
+    var ComboLlenar = "#lstEmpleados";
+    LlenarComboControlador(SURL, Comando, lstParametros, ComboLlenar)
 
 }
-function LlenarComboEmpleados(Datos) {
-    for (i = 0; i < Datos.length; i++) {
-        $("#lstEmpleados").append('<option value=' + Datos[i].Valor + '>' + Datos[i].Texto + '</option>');
-    }
+function ComboTipoProducto() {
 
+    var SURL = "../Comunes/ControladorCombos.ashx";
+    var Comando = "TIPOPRODUCTO";
+    var lstParametros = null;
+    var ComboLlenar = "#lstTipoProducto";
+    var promise = LlenarComboControlador(SURL, Comando, lstParametros, ComboLlenar)
+    if (promise) {
+        promise.then(function (value) {
+            var TipoProducto = $("#lstTipoProducto").val();
+            ComboProducto(TipoProducto);
+        });
+    }
+}
+
+function ComboProducto(TipoProducto) {
+    $("#lstProductos").empty();
+    var SURL = "../Comunes/ControladorCombos.ashx";
+    var Comando = "PRODUCTO";
+    var lstParametros = [{ "Parametro": "@prTipoPoducto", "Valor": TipoProducto }];
+    var ComboLlenar = "#lstProductos";
+    var promise = LlenarComboControlador(SURL, Comando, lstParametros, ComboLlenar)
+    if (promise) {
+        promise.then(function (value) {
+            CalcularValorUnitario();
+        });
+    }
+}
+
+function CalcularValorUnitario() {
+    var Producto = $("#lstProductos").val();
+    var arrProducto = Producto.split('|');
+    $("#txtValorUnitario").val(arrProducto[1]);
 }
