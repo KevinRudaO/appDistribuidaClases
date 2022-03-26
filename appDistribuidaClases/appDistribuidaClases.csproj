@@ -44,8 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="libComunes">
-      <HintPath>..\..\pProgramacionDistribuida\bin\libComunes.dll</HintPath>
+    <Reference Include="libComunes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libComunes\bin\Debug\libComunes.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -109,6 +110,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Comunes\Combos.js" />
+    <Content Include="Comunes\Grids.js" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -165,6 +168,7 @@
     <Content Include="CSS\bootstrap.min.css.map" />
     <Content Include="CSS\bootstrap.rtl.css.map" />
     <Content Include="CSS\bootstrap.rtl.min.css.map" />
+    <Content Include="Comunes\ControladorCombos.ashx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="javascritp\Facturacion.js" />
     <Content Include="javascritp\Registro.js" />
@@ -222,6 +226,9 @@
     <Compile Include="Clases\clsEmpresa.cs" />
     <Compile Include="Clases\clsCliente.cs" />
     <Compile Include="Clases\ViewEmpleado.cs" />
+    <Compile Include="Comunes\ControladorCombos.ashx.cs">
+      <DependentUpon>ControladorCombos.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
