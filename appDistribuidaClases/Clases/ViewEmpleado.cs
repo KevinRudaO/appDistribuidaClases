@@ -9,11 +9,11 @@ namespace appDistribuidaClases.Clases
     {
         public string Documento { get; set; }
         public string Nombre { get; set; }
+        //** Continuan las propieades
         public string Error { get; set; }
         public string Comando { get; set; }
-
     }
-    public class ViewComboCajeros
+    public class viewComboCajeros
     {
         public string Valor { get; set; }
         public string Texto { get; set; }

@@ -21,100 +21,81 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-12">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                <div class="card-header" style="height:50px;"><h4 class="text-center">REGISTRO FACTURACIÓN</h4></div>
+                                <div class="card-header" style="height:50px;"><h4 class="text-center">REGISTRO DE CLIENTES</h4></div>
                                 <div class="card-body">
                                     <form>
                                         <div class="row mb-3">
-                                            <div class="col-md-3">
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <h6>Número de factura: </h6>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <div id="dvNumeroFactura" class="h6"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <h6>Fecha:</h6>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <div id="dvFechaFactura" class="h6"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <div class="form-floating">
-                                                    <select class="form-control" id="lstEmpleados"></select>
-                                                    <label for="lstEmpleados">Empleados</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id="txtDocumento" type="text" placeholder="." />
-                                                    <label for="txtDocumento">Documento del cliente</label>
+                                                    <label for="txtDocumento">Documento</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5">
+                                            <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="txtNombreCliente" type="text" disabled placeholder="." />
-                                                    <label for="txtDocumento">Nombre del cliente</label>
+                                                    <input class="form-control" id="txtNombres" type="text" placeholder="." />
+                                                    <label for="txtNombres">Nombre</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <select class="form-control" id="lstTipoProducto"></select>
-                                                    <label for="lstTipoProducto">Tipo Producto</label>
+                                                    <input class="form-control" id="txtPrimerApellido" type="text" placeholder="." />
+                                                    <label for="txtPrimerApellido">Primer apellido</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-floating">
-                                                    <select class="form-control" id="lstProductos"></select>
-                                                    <label for="lstProductos">Producto</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-floating">
-                                                    <input class="form-control" id="txtValorUnitario" type="text" disabled placeholder="." />
-                                                    <label for="txtValorUnitario">Valor Unitario</label>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="txtSegundoApellido" type="text" placeholder="." />
+                                                    <label for="txtSegundoApellido">Segundo apellido</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="txtCantidad" type="number" value="1" placeholder="." />
-                                                    <label for="txtCantidad">Cantidad</label>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="txtFechaNacimiento" type="date" placeholder="." />
+                                                    <label for="txtFechaNacimiento">Fecha de nacimiento</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="txtSubtotal" type="text" disabled placeholder="." />
-                                                    <label for="txtSubtotal">Subtotal</label>
+                                                    <input class="form-control" id="txtDireccion" type="text" placeholder="." />
+                                                    <label for="txtDireccion">Direccion</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-12">
+                                                <div class="form-control" style="align-content:center">
+                                                    <h4>TELÉFONOS</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <select class="form-control" id="lstTipoTelefono"></select>
+                                                    <label for="lstTipoTelefono">Tipo teléfono</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="txtTotal" type="text" disabled placeholder="." />
-                                                    <label for="txtTotal">Total</label>
+                                                    <input class="form-control" id="txtNumero" type="text" placeholder="." />
+                                                    <label for="txtNumero">Número de teléfono</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mb-3" id="dvGrabar">
                                             <div class="col-md-4">
                                                 <div class="mt-4 mb-0">
-                                                    <div class="d-grid"><button class="btn btn-primary btn-block" id="btnGrabar" type="button">GRABAR</button></div>
+                                                    <div class="d-grid"><button class="btn btn-primary btn-block" id="btnAgregar" type="button">AGREGAR TELÉFONO</button></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="mt-4 mb-0">
-                                                    <div class="d-grid"><button class="btn btn-primary btn-block" id="btnTerminar" type="button">PROCESAR FACTURA</button></div>
+                                                    <div class="d-grid"><button class="btn btn-primary btn-block" id="btnGrabarCliente" type="button">GRABAR CLIENTE</button></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -143,15 +124,12 @@
 
                                         <div id="dvMensaje" class="card-footer d-flex align-items-center justify-content-between"></div>
                                         <div id="dvTabla">
-                                            <table id="tblFactura" class="display" style="width:100%">
+                                            <table id="tblTelefonos" class="display" style="width:100%">
                                                 <thead>
                                                     <tr>
-                                                        <th>Codigo Tipo Producto</th>
-                                                        <th>Tipo producto</th>
-                                                        <th>Codigo producto</th>
-                                                        <th>Producto</th>
-                                                        <th>Cantidad</th>
-                                                        <th>Valor Unitario</th>
+                                                        <th>Codigo Tipo Telefono</th>
+                                                        <th>Tipo Telefono</th>
+                                                        <th>Numero</th>
                                                     </tr>
                                                 </thead>
                                             </table>
@@ -184,8 +162,7 @@
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../Scripts/datatables.min.js"></script>
-    <script src="../javascritp/Facturacion.js"></script>
     <script src="../Comunes/Combos.js"></script>
-    <script src="../Scripts/accounting.min.js"></script>
+    <script src="../javascritp/ClienteSuper.js"></script>
 </body>
 </html>

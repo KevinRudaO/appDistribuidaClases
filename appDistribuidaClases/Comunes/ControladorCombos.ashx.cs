@@ -16,39 +16,41 @@ namespace appDistribuidaClases.Comunes
 
         public void ProcessRequest(HttpContext context)
         {
-            string Datoscombo;
-            string Respuesta;
+            string DatosCombo;
             StreamReader reader = new StreamReader(context.Request.InputStream);
-            Datoscombo = reader.ReadToEnd();
+            DatosCombo = reader.ReadToEnd();
 
-            viewCombo vCombo = JsonConvert.DeserializeObject<viewCombo>(Datoscombo);
+            viewCombo vCombo = JsonConvert.DeserializeObject<viewCombo>(DatosCombo);
+            string Respuesta;
 
             switch (vCombo.Comando.ToUpper())
             {
                 case "LLENARCOMBOCAJEROS":
-                    Respuesta = LlenarCombo(vCombo, "Empleado_Cajero");
+                    Respuesta = LlenarCombo(vCombo, "Empleado_ComboCajeros");
                     break;
                 case "TIPOPRODUCTO":
                     Respuesta = LlenarCombo(vCombo, "TipoProducto_LlenarCombo");
                     break;
-                case "PRODUCTO":
+                case "PRODUCTOXTIPO":
                     Respuesta = LlenarCombo(vCombo, "Producto_LlenarComboXTipo");
+                    break;
+                case "TIPOTELEFONO":
+                    Respuesta = LlenarCombo(vCombo, "TipoTelefono_LlenarCombo");
                     break;
                 default:
                     Respuesta = "Comando sin definir";
                     break;
             }
+
             context.Response.Write(Respuesta);
         }
         private string LlenarCombo(viewCombo vCombo, string SQL)
         {
             vCombo.SQL = SQL;
             clsComboListas oCombo = new clsComboListas();
-
             oCombo.vCombo = vCombo;
             return JsonConvert.SerializeObject(oCombo.ListarCombos());
         }
-
         public bool IsReusable
         {
             get
