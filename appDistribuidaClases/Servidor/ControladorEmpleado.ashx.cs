@@ -16,25 +16,25 @@ namespace appDistribuidaClases.Servidor
 
         public void ProcessRequest(HttpContext context)
         {
-            string DatosEmpleado;
+            string DatosEmpresa;
             StreamReader reader = new StreamReader(context.Request.InputStream);
-            DatosEmpleado = reader.ReadToEnd();
+            DatosEmpresa = reader.ReadToEnd();
 
-            clsEmpleado oEmpleado = JsonConvert.DeserializeObject<clsEmpleado>(DatosEmpleado);
+            clsEmpresa oEmpresa = JsonConvert.DeserializeObject<clsEmpresa>(DatosEmpresa);
 
-            switch (oEmpleado.Comando.ToUpper())
+            switch (oEmpresa.Comando.ToUpper())
             {
                 case "INSERTAR":
-                    context.Response.Write("Comando sin definir");
+                    context.Response.Write("Sin definir");
                     break;
                 case "ACTUALIZAR":
-                    context.Response.Write("Comando sin definir");
+                    context.Response.Write("Sin definir");
                     break;
                 case "ELIMINAR":
-                    context.Response.Write("Comando sin definir");
+                    context.Response.Write("Sin definir");
                     break;
                 case "CONSULTAR":
-                    context.Response.Write("Comando sin definir");
+                    context.Response.Write("Sin definir");
                     break;
                 case "LLENARCOMBOCAJEROS":
                     context.Response.Write(JsonConvert.SerializeObject(LlenarComboCajeros()));
@@ -44,8 +44,7 @@ namespace appDistribuidaClases.Servidor
                     break;
             }
         }
-
-        private List<ViewComboCajeros> LlenarComboCajeros()
+        private List<viewComboCajeros> LlenarComboCajeros()
         {
             clsEmpleado oEmpleado = new clsEmpleado();
             return oEmpleado.LlenarComboCajeros();
