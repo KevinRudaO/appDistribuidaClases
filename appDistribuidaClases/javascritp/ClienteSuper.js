@@ -53,6 +53,9 @@
             $(this).addClass('selected');
             MostrarBotones();
 
+            var DatosFila = oTabla.row('.selected').data();
+            $("#lstTipoTelefono").val(DatosFila[0]);
+            $("#txtNumero").val(DatosFila[2]);
         }
     });
 
