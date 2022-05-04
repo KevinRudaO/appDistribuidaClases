@@ -29,3 +29,19 @@
     });
     return promise;
 }
+function LlenarGridDatos(respuesta,TablaLlenar) {
+    var columns = [];
+    columnNames = Object.keys(respuesta[0]);
+    for (var i in columnNames) {
+        columns.push({
+            data: columnNames[i],
+            title: columnNames[i]
+        });
+    }
+
+    $(TablaLlenar).DataTable({
+        data: respuesta,
+        columns: columns,
+        destroy: true
+    });
+}

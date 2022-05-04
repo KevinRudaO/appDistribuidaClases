@@ -170,10 +170,12 @@
     <Content Include="CSS\bootstrap.rtl.min.css.map" />
     <Content Include="Comunes\ControladorCombos.ashx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="javascritp\Empleados.js" />
     <Content Include="javascritp\ClienteSuper.js" />
     <Content Include="javascritp\Facturacion.js" />
     <Content Include="javascritp\Registro.js" />
     <Content Include="javascritp\RegistroEmpresa.js" />
+    <Content Include="Paginas\Empleado.html" />
     <Content Include="Paginas\Cliente_Super.html" />
     <Content Include="Paginas\Facturacion.html" />
     <Content Include="Paginas\RegistroEmpresa.html" />

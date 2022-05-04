@@ -18,3 +18,8 @@
     });
     return promise;
 }
+function LlenarComboDatos(respuesta, ComboLlenar) {
+    for (var op = 0; op < respuesta.length; op++) {
+        $(ComboLlenar).append('<option value=' + respuesta[op].Valor + '>' + respuesta[op].Texto + '</option>');
+    }
+}
